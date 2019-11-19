@@ -6,5 +6,6 @@ module Types
     field :lastName, String, null: false
     field :email, String, null: true
     field :token, String, null: false
+    field :boards,[BoardType], null:false
   end
 end
