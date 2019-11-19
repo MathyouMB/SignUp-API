@@ -13,3 +13,12 @@ User.create(
     user_id: 1
   })
 end
+
+20.times do
+  Item.create({
+    name: Faker::Lorem.sentence,
+    url: Faker::Internet.url,
+    description: Faker::Lorem.sentence,
+    board_id: rand(1..10)
+  })
+end
