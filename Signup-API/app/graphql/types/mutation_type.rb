@@ -126,6 +126,9 @@ module Types
           mutation: Mutations::CreateBoard,
           description: 'Create Board'
 
+    field :create_item,
+          mutation: Mutations::CreateItem,
+          description: 'Create Item'
   end
 end
   
