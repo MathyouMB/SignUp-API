@@ -129,6 +129,10 @@ module Types
     field :create_item,
           mutation: Mutations::CreateItem,
           description: 'Create Item'
+
+    field :create_signup,
+          mutation: Mutations::CreateSignup,
+          description: 'Create Signup'
   end
 end
   
