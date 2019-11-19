@@ -7,6 +7,7 @@ module Types
       argument :email, String, required: true
       argument :password, String, required: true
     end
+
     def login(email:, password:)
       user = User.find_for_authentication(email: email)
       return nil if !user
@@ -120,6 +121,11 @@ module Types
 
     #   user.resend_unlock_instructions
     # end
+
+    field :create_board,
+          mutation: Mutations::CreateBoard,
+          description: 'Create Board'
+
   end
 end
   
