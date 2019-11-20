@@ -16,7 +16,7 @@ module Mutations
                     user = User.find(item.signup.user_id)
                     selected_signup = user.signups.find(item.signup.id)
                     selected_signup.destroy
-                    raise GraphQL::ExecutionError, selected_signuperrors.full_messages.join(", ") unless selected_signup.errors.empty?
+                    raise GraphQL::ExecutionError, selected_signup.errors.full_messages.join(", ") unless selected_signup.errors.empty?
                    
                     item.signup.destroy
                     raise GraphQL::ExecutionError, item.signup.errors.full_messages.join(", ") unless item.signup.errors.empty?
