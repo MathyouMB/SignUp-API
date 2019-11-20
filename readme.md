@@ -1,5 +1,5 @@
 <h1>SignUp-API</h1>
-<p>A scalable GraphQL API built with Rails thanks to the Devise gem. This API is great for building apps where users can signup for things.</p>
+<p>A scalable GraphQL API built with Rails and a User system from the Devise gem. This API is great for building apps where you need users who can signup for things.</p>
 
 <h2>Project Ideas</h2>
 <ul>
