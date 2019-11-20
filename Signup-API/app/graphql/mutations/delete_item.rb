@@ -12,6 +12,7 @@ module Mutations
                 if item.signup.present?
                     
                     #if the item has been signed up for... we need to delete it from its User's signup to avoid foreign key violations
+                    
                     user = User.find(item.signup.user_id)
                     selected_signup = user.signups.find(item.signup.id)
                     selected_signup.destroy
