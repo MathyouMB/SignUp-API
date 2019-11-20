@@ -2,9 +2,6 @@ class User < ApplicationRecord
   include Devise::JWT::RevocationStrategies::JTIMatcher
   include Tokenizable
 
-  has_many :boards
-  has_many :signups
-  has_many :items, through: :signups
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
@@ -20,7 +17,9 @@ class User < ApplicationRecord
   enum role: %i[customer admin]
 
   # - RELATIONS
-  # -
+  has_many :boards
+  has_many :signups
+  has_many :items, through: :signups
 
   # - VALIDATIONS
   validates :email, presence: true

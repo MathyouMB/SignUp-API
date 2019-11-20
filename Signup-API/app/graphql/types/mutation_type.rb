@@ -1,24 +1,40 @@
 module Types
   class MutationType < Types::BaseObject
+
+    #Model Operations
+    field :create_board,
+          mutation: Mutations::CreateBoard,
+          description: 'Create Board'
+
+    field :update_board,
+          mutation: Mutations::UpdateBoard,
+          description: 'Update Board'
+
+    field :create_item,
+          mutation: Mutations::CreateItem,
+          description: 'Create Item'
     
-    ## LOGIN
-    field :login, UserType, null: true do
-      description "Login for users"
-      argument :email, String, required: true
-      argument :password, String, required: true
-    end
+    field :delete_item,
+          mutation: Mutations::DeleteItem,
+          description: 'Delete Item'
 
-    def login(email:, password:)
-      user = User.find_for_authentication(email: email)
-      return nil if !user
-      
-      is_valid_for_auth = user.valid_for_authentication?{
-        user.valid_password?(password)
-      }
-      return is_valid_for_auth ? user : nil
-    end
+    field :create_signup,
+          mutation: Mutations::CreateSignup,
+          description: 'Create Signup'
 
-    ## TOKEN-LOGIN
+    #User Operations
+    field :login,
+          mutation: Mutations::UserLogin,
+          description: 'Login with your credentials'
+
+    field :update_user,
+          mutation: Mutations::UpdateUser,
+          description: 'Update user'
+    
+    field :sign_up,
+          mutation: Mutations::CreateUser,
+          description: "Sign up for users"
+        
     field :token_login, UserType, null: true do
       description "JWT token login"
     end
@@ -26,7 +42,6 @@ module Types
       context[:current_user]
     end
 
-    ## LOGOUT
     field :logout, Boolean, null: true do
       description "Logout for users"
     end
@@ -36,45 +51,6 @@ module Types
         return true
       end 
       false
-    end
-
-    # Uncomment to enable features
-  
-    field :update_user, UserType, null: true do
-      description "Update user"
-      argument :password, String, required: false
-      argument :passwordConfirmation, String, required: false
-    end
-
-    def update_user(
-        password: context[:current_user] ? context[:current_user].password : '',
-        password_confirmation: context[:current_user] ? context[:current_user].password_confirmation : ''
-      )
-      user = context[:current_user]
-      return nil if !user
-      user.update!(
-        password: password,
-        password_confirmation: password_confirmation
-      )
-      user
-    end
-  
-    field :sign_up, UserType, null: true do
-      description "Sign up for users"
-      argument :email, String, required: true
-      argument :password, String, required: true
-      argument :passwordConfirmation, String, required: true
-      argument :firstName, String, required: true
-      argument :lastName, String, required: true
-    end
-    def sign_up(email:, password:, password_confirmation:, first_name:, last_name:)
-      User.create(
-        email: email, 
-        password: password, 
-        password_confirmation: password_confirmation, 
-        first_name: first_name, 
-        last_name: last_name
-      )
     end
 
     field :send_reset_password_instructions, Boolean, null: true do
@@ -121,18 +97,6 @@ module Types
 
     #   user.resend_unlock_instructions
     # end
-
-    field :create_board,
-          mutation: Mutations::CreateBoard,
-          description: 'Create Board'
-
-    field :create_item,
-          mutation: Mutations::CreateItem,
-          description: 'Create Item'
-
-    field :create_signup,
-          mutation: Mutations::CreateSignup,
-          description: 'Create Signup'
   end
 end
   
