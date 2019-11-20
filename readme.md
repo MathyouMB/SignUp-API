@@ -3,7 +3,7 @@
 
 <h2>Project Ideas</h2>
 <ul>
-<li>Potluck Signup App</li>
+<li>Potluck Item Signup App</li>
 <li>Task/Chore picking App</li>
 </ul>
 
@@ -13,7 +13,8 @@ Coming soon ;-;
 <h2>Planned things</h2>
 <ul>
 <li>Rspec tests</li>
-<li>Demo frontend & api hosting</li>
+<li>Demo frontend App</li>
+<li>Demo hosted API</li>
 </ul>
 
 
