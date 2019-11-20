@@ -21,9 +21,11 @@ Coming soon ;-;
 
 
 <h2>ERD</h2>
-<b>User</b>: Represents the user </br>
-<b>Board</b>: (The Signup board), holds a list of possible items a user can sign up to do or bring. </br>
-<b>Item</b>: An entity a user can sign up to do.</br>
-<b>Signup</b>: A model representing the join between the User and Item. Users have items through Signups.</br>
+<ul>
+<li><b>User</b>: Represents the user </br></li>
+<li><b>Board</b>: (The Signup board), holds a list of possible items a user can sign up to do or bring. </br></li>
+<li><b>Item</b>: An entity a user can sign up to do.</br></li>
+<li><b>Signup</b>: A model representing the join between the User and Item. Users have items through Signups.</br></li>
+</ul>
 
 <img src="https://i.imgur.com/HXKNtaD.png"></img>
