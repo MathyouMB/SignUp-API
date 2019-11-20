@@ -3,8 +3,8 @@
 
 <h2>Planned things</h2>
 <ul>
-<li>Rspec tests</l1>
-<l1>Demo frontend & api hosting</l1>
+<li>Rspec tests</li>
+<l1>Demo frontend & api hosting</li>
 </ul>
 
 <h2>ERD</h2>
