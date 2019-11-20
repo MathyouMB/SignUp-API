@@ -7,6 +7,9 @@
 <li>Task/Chore picking App</li>
 </ul>
 
+<h2>Setup</h2>
+Coming soon ;-;
+
 <h2>Planned things</h2>
 <ul>
 <li>Rspec tests</li>
