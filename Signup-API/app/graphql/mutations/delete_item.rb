@@ -10,7 +10,14 @@ module Mutations
            
             if item.present?
                 if item.signup.present?
-                    raise GraphQL::ExecutionError, "Someone has signed up to bring this item, so we cannot delete it."
+                    
+                    #if the item has been signed up for... we need to delete it from its User's signup to avoid foreign key violations
+                    u = User.find(item.signup.user_id)
+                    u.signups.find(item.signup.id).destroy
+                    item.signup.destroy
+                    item.destroy
+                    item
+
                 else
                     item.destroy
                     raise GraphQL::ExecutionError, item.errors.full_messages.join(", ") unless item.errors.empty?
