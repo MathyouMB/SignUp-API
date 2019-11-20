@@ -13,6 +13,7 @@ Coming soon ;-;
 <h2>Planned things</h2>
 <ul>
 <li>Rspec tests</li>
+<li>Additional Error handling</li>
 <li>Demo frontend App</li>
 <li>Demo hosted API</li>
 </ul>
